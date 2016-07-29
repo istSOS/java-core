@@ -1,6 +1,8 @@
 # istSOS Java Core Library
 
 
+
+
 <p align="center">
 <b><a href="#introduction">Introduction</a></b>
 |
@@ -14,10 +16,12 @@
 |
 <b><a href="#author">Author</a></b>
 |
-<b><a href="#release history">Release history</a></b>
+<b><a href="#release-history">Release history</a></b>
 |
-<b><a href="#useful links">Useful links</a></b>
+<b><a href="#useful-links">Useful links</a></b>
 </p>
+
+
 
 
 ## Introduction
