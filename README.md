@@ -1,14 +1,27 @@
 # istSOS Java Core Library
 
 
-.. contents::
-	:local:
-	:depth: 1
-	:backlinks: none
+<p align="center">
+<b><a href="#introduction">Introduction</a></b>
+|
+<b><a href="#features">Features</a></b>
+|
+<b><a href="#installation">Installation</a></b>
+|
+<b><a href="#documentation">Documentation</a></b>
+|
+<b><a href="#support">Support</a></b>
+|
+<b><a href="#author">Author</a></b>
+|
+<b><a href="#release history">Release history</a></b>
+|
+<b><a href="#useful links">Useful links</a></b>
+</p>
 
-============
-Introduction
-============
+
+## Introduction
+
 
 The istSOS Java Core Library is mainly an REST API wrapper. It will expose in Java language the communication with the istSOS WA REST interface.
 
@@ -42,9 +55,9 @@ There are two options for using this library:
 
 Open an issue in the [github issue tracker](https://github.com/masterflorin/java-core/issues) for **bugs** and **requesting new features**.
 
-## Authors & Contributors
+## Author
 
-Florin-Daniel Cioloboc ([@florincioloboc](https://twitter.com/florincioloboc)) implemented the Java Core during Google Summer of Code 2016.
+Florin-Daniel Cioloboc ([@florincioloboc](https://twitter.com/florincioloboc)) implemented during Google Summer of Code 2016.
 
 Mentors from istSOS: Mirko Cardoso, Milan Antonovic.
 
