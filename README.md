@@ -1,63 +1,60 @@
 # istSOS Java Core Library
 
 
+.. contents::
+	:local:
+	:depth: 1
+	:backlinks: none
 
-## Introduction
+============
+Introduction
+============
 
 The istSOS Java Core Library is mainly an REST API wrapper. It will expose in Java language the communication with the istSOS WA REST interface.
 
-As istSOS was built with Python, the Java Core was designed to be an independent library for Java developers to customize
-their own programs using Java. 
+As istSOS was built with Python, the Java Core was designed to be an independent library for Java developers to customize their own programs using Java. 
 
 Secondly, it was designed to serve as a starting point for the development of Android library for istSOS.
 
 ## Features
 
-Configured as a Gradle project to handle dependencies in a swift and efficient way
-
-Establish an IstSOS instance with own server and services
-
-All data classes present in istSOS are included
-
-Developed to handle HTTP requests asynchronously to a server using [AsyncHTTPClient] (https://github.com/AsyncHttpClient/async-http-client)
-
-Handles JSON de-serialization and serialization using [Gson] (https://github.com/google/gson/blob/master/UserGuide.md)
-
-Developed for Java 8
+* Configured as a Gradle project to handle dependencies in a swift and efficient way
+* Establish an IstSOS instance with own server and services
+* All data classes present in istSOS are included
+* Developed to handle HTTP requests asynchronously to a server using [AsyncHTTPClient] (https://github.com/AsyncHttpClient/async-http-client)
+* Handles JSON de-serialization and serialization using [Gson] (https://github.com/google/gson)
+* Developed for Java 8
+* Can be used as a library for Android development
 
 ## Installation
 
 There are two options for using this library:
-	- look inside the build -> libs and find the java-core.jar
-	- `git clone ` this repo, and create jar using Gradle command `gradle buildJar`
-
-
-## Usage
-
-Check the UserGuide file to learn how to use it.
+* look inside the build -> libs and find the java-core.jar
+* `git clone ` this repo, and create jar using Gradle command `gradle buildJar`
 
 ## Documentation
 
-Check out the [GitHub wiki] (https://github.com/masterflorin/java-core/wiki) of this repository.
+* JavaCore [UserGuide](https://github.com/masterflorin/java-core/blob/master/UserGuide.md): Tutorial on how to get started.
+* JavaCore [API](https://github.com/masterflorin/java-core/wiki): references to classes, methods.
+* JavaCore [Version History](https://github.com/masterflorin/java-core/blob/master/VERSION.md): see release history of library.
 
-## Support (Questions and issues)
+## Support (Requests and issues)
 
-For the moment, opening an issue on this GitHub repository would be the only option at the moment.
+Open an issue in the [github issue tracker](https://github.com/masterflorin/java-core/issues) for **bugs** and **requesting new features**.
 
-## Authors
+## Authors & Contributors
 
 Florin-Daniel Cioloboc ([@florincioloboc](https://twitter.com/florincioloboc)) implemented the Java Core during Google Summer of Code 2016.
 
 Mentors from istSOS: Mirko Cardoso, Milan Antonovic.
 
-## Last time updated
+## Release history
 
-30.07.2016
+* Last updated: 30.07.2016
+* Version: 0.1
 
 ## Useful links
 
-istSOS platform [here] (http://istsos.org/)
- 
-istSOS mailing list [here] (https://groups.google.com/forum/#!forum/istsos)
-
-GSoC development log on OSGeo [here] (https://wiki.osgeo.org/wiki/Android_istSOS)
+* istSOS [website](http://istsos.org/)
+* istSOS [mailing list](https://groups.google.com/forum/#!forum/istsos)
+* GSoC development log on [OSGeo wiki](https://wiki.osgeo.org/wiki/Android_istSOS)

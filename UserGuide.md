@@ -4,6 +4,7 @@
 ##Author: Florin-Daniel Cioloboc
 
 
+##Getting Started
 
 To create an instance and initialize a server you use the following:
 
