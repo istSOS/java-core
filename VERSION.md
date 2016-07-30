@@ -4,7 +4,7 @@
 
 ### Version 0.1
 
-* Added basic functionality for the library
-* Uses AsyncHTTPClient to enable asynchronous programming
-* Released as Gradle
-* Released with basic functionlity tests
+* Added basic functionality for communication with istSOS WA REST interface
+* Executes HTTP requests asynchronously
+* Released as Gradle-based project
+* Tested as a library in Android Studio

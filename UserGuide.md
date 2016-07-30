@@ -10,7 +10,10 @@ Consider this user guide as a tutorial to get you started on how to develop
 with istSOS Java Core.
 
 
-## Getting Started
+[Getting Started](#getting-started)
+
+
+### Getting Started
 
 Important to keep in mind that istSOS Java Core makes use of event listeners, therefore whenever you use a method
 whether on a e.g. `service` or `server` instance you have to use a `IstSOSListener` as a parameter for all methods.
@@ -18,13 +21,24 @@ whether on a e.g. `service` or `server` instance you have to use a `IstSOSListen
 Whenever you develop keep in mind that first the object's configuration must be loaded, thus you can see the use of `IstSOSListener`, in order to keep the reference of the object.
 
 
-Import the Java Core library.
+### Import the Java Core
+
+It follows the regular Java programming style of importing a library
 
 ```java
 
-	import istsos
+	import istsos;
 
 ```
+
+Same applies if you want to use a specific class.
+
+```java
+
+	import istsos.Service;
+
+```
+
 
 To create an instance of `istSOS` you have to initialize it in the following way.
 

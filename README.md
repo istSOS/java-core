@@ -4,7 +4,7 @@
 
 
 <p align="center">
-<b><a href="#introduction">Introduction</a></b>
+<b><a href="#about">About</a></b>
 |
 <b><a href="#features">Features</a></b>
 |
@@ -24,35 +24,29 @@
 
 
 
-## Introduction
+## About
 
+Designed as a simple to use REST API wrapper to expose communication with the [istSOS](http://istsos.org/) WA REST interface. 
 
-The istSOS Java Core Library is mainly an REST API wrapper. It will expose in Java language the communication with the istSOS WA REST interface.
-
-As istSOS was built with Python, the Java Core was designed to be an independent library for Java developers to customize their own programs using Java. 
-
-Secondly, it was designed to serve as a starting point for the development of Android library for istSOS.
+Serves a starting point for developing Android apps for istSOS platform.
 
 ## Features
 
-* Configured as a Gradle project to handle dependencies in a swift and efficient way
-* Establish an IstSOS instance with own server and services
-* All data classes present in istSOS are included
-* Developed to handle HTTP requests asynchronously to a server using [AsyncHTTPClient] (https://github.com/AsyncHttpClient/async-http-client)
-* Handles JSON de-serialization and serialization using [Gson] (https://github.com/google/gson)
-* Developed for Java 8
-* Can be used as a library for Android development
+* Configured as a Gradle-based project to handle dependencies
+* Developed to handle HTTP requests asynchronously using [AsyncHTTPClient] (https://github.com/AsyncHttpClient/async-http-client)
+* Handles JSON (de)serialization using [Gson] (https://github.com/google/gson)
+* Built for Java 8 and above
+* Usable as a library in Android development
 
 ## Installation
 
 There are two options for using this library:
-* look inside the build -> libs and find the java-core.jar
-* `git clone ` this repo, and create jar using Gradle command `gradle buildJar`
+* Look inside the following folders path `build` -> `libs` and find the `java-core.jar`
+* `git clone ` this repo, then create the jar using Gradle command `gradle buildJar` in a terminal
 
 ## Documentation
 
 * JavaCore [UserGuide](https://github.com/masterflorin/java-core/blob/master/UserGuide.md): Tutorial on how to get started.
-* JavaCore [API](https://github.com/masterflorin/java-core/wiki): references to classes, methods.
 * JavaCore [Version History](https://github.com/masterflorin/java-core/blob/master/VERSION.md): see release history of library.
 
 ## Support (Requests and issues)
