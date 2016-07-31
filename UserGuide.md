@@ -2,6 +2,7 @@
 # User Guide
 
 Author: Florin-Daniel Cioloboc
+
 Last updated: 31.07.2016
 
 
@@ -41,7 +42,7 @@ Whenever you develop keep in mind that first the object's configuration must be 
 in order to keep the reference of the object.
 
 
-### Importing the Java Core
+## Importing the Java Core
 
 It follows the regular Java programming style of importing a library
 
@@ -59,7 +60,7 @@ Same applies if you want to use a specific class. Below see an example of import
 
 ```
 
-### Create an instance of istSOS
+## Create an instance of istSOS
 
 To create an instance of `istSOS` you have to initialize it in the following way.
 
@@ -69,7 +70,7 @@ To create an instance of `istSOS` you have to initialize it in the following way
 
 ```
 
-### Initialize a Server
+## Initialize a Server
 
 There are two way to accomplish the initialization of a server.
 
@@ -103,7 +104,7 @@ a `Server` instance.
 Notice that you could have hard-coded the serverName into the initServer since it takes two strings as parameter if you really wanted.
 
 
-### Using Services
+## Using Services
 
 To load services as Java object you will have to use `loadServices` method on a `server` instance that was previously initialized. 
 
@@ -138,7 +139,7 @@ storing lists of the data classes used in istSOS, whether its `Procedure`, `Offe
 `ObservedProperty`. You can see more about in the [Get Observation](#get-observation) section.
 
 
-### Load and Validate a Database Connection
+## Load and Validate a Database Connection
 
 
 To load a database, you have to apply the `loadDatabase` method on a `Service`. This return in a manner of speaking a connection to database of
@@ -166,7 +167,7 @@ the service. Once done, inside the nest you can use `validateDatabase`.
 
 ```
 
-### Describe sensor
+## Describe sensor
 
 In order to obtain a description of the sensor, you have to use `describeSensor`. 
 Since this will return an object that is basically a `Procedure`, you might as well 
@@ -191,7 +192,7 @@ assign the result of request in a `Procedure`.
 
 ```
 
-### Register sensor
+## Register sensor
 
 At this point you will see that this is a pretty convenient step-by-step approach to 
 developing using the Java Core.
@@ -236,7 +237,7 @@ to register another sensor with `regiserSensor`. Simply put, a request was made 
 ```
 
 
-### Get Observation
+## Get Observation
 
 Getting an Observation follows pretty much the same pattern as before, although you have to keep in
 mind that you will need additional parameters to make perform the request.
@@ -245,8 +246,9 @@ To better understand, let's have a look at the header for the method `getObserva
 
 ```java
 
-		getObervation(Offering offering, Procedure procedure, ObservedProperty defUrn, 
-			Date beginPosition, Date endPosition, IstSOSListener callback
+		getObervation(Offering offering, Procedure procedure, 
+						ObservedProperty defUrn, Date beginPosition, 
+						Date endPosition, IstSOSListener callback)
 
 ```
 
@@ -259,7 +261,7 @@ for the `Observation`, this way it will return data within that time series.
 Those three things can all be obtained in the slightly similar as you did with `DatabaseConnection`, however there are a few things you need to do beforehand.
 
 
-#### Offering
+### Offering
 
 To retrieve an `Offering`, you would have to load all the offerings on the selected
 service. To achieve that, you can follow the same pattern after using `loadServices`, 
@@ -272,7 +274,8 @@ to apply `loadOfferings` on `Service`.
 		@Override
 		public void onSuccess(EventObject event) {
 								
-		
+				//insert code
+				
 		}
 							
 		@Override
@@ -300,7 +303,7 @@ Use the predefined `getOffering` to get a specific offering.
 
 ```
 
-#### Procedure
+### Procedure
 
 Following closely the `Offering` part, you can apply the same technique for `Procedure`.
 
@@ -319,7 +322,7 @@ you can use the predefined `getProcedure` method for that by specifying its name
 	
 ```
 
-#### ObservedProperty
+### ObservedProperty
 
 For `ObservedProperty` you can repeat the same process as before.
 
@@ -338,7 +341,7 @@ Same as for `Procedure`
 ```
 
 
-#### More on Get Observation
+### More on Get Observation
 
 For the second `getObservation` method notice that it takes as input a list of
 `Procedure` and `ObservedProperty`. 
@@ -346,8 +349,8 @@ For the second `getObservation` method notice that it takes as input a list of
 ```java
 
 	getObervation(Offering offering, List<Procedure> procedure, 
-					List<ObservedProperty> defUrn, Date beginPosition, Date 
-					endPosition, IstSOSListener callback)
+					List<ObservedProperty> defUrn, Date beginPosition, 
+					Date endPosition, IstSOSListener callback)
 ```
 
 You can make use of the predefined methods again to get the lists.
@@ -360,7 +363,24 @@ You can make use of the predefined methods again to get the lists.
 ```
 
 
-### Insert Observation
+## Insert Observation
 
+For this to work it would require you to use a `Procedure` and an `Observation` using
+a similar technique as you used above in the previous sections.
 
+```java
 
+	insertObservation(Procedure procedure, Observation observation, IstSOSListener callback)
+	
+```
+
+An `Observation` can be obtained fusing `getObservation` in case you want to retrieve
+a specific one from the Service.
+
+```java
+
+	service.getObservation(Offering offering, Procedure procedure, ObservedProperty defUrn, 
+				Date beginPosition, Date endPosition, IstSOSListener callback)
+	
+``` 
+While a `Procedure` can be retrieved from the list of procedures.
