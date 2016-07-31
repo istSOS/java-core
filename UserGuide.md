@@ -12,6 +12,8 @@ currently available in the library.
 
 More details about istSOS itself check -> [documentation](http://istsos.org/en/latest/doc/)
 
+## Table of contents
+
 *[Before getting started](#before-getting-started)
 *[Importing the Java Core](#importing-the-java-core)
 *[Create an instance of istSOS](#create-an-instance-of-istsos)
@@ -21,10 +23,10 @@ More details about istSOS itself check -> [documentation](http://istsos.org/en/l
 *[Describe Sensor](#describe-sensor)
 *[Register Sensor](#register-sensor)
 *[Get Observation](#get-observation)
-**[Offering](#offering)
-**[Procedure](#procedure)
-**[ObservedProperty](#observedproperty)
-**[More on Get Observation](#more-on-get-observation)
+	*[Offering](#offering)
+	*[Procedure](#procedure)
+	*[ObservedProperty](#observedproperty)
+	*[More on Get Observation](#more-on-get-observation)
 *[Insert Observation](#insert-observation)
 
 
