@@ -57,7 +57,12 @@ public class Service implements IstSOSObject<Service>{
 	public void setServer(Server server){
 		this.server = server;
 	}
-
+	
+	/**
+	 * 
+	 * @param procedureName
+	 * @return Procedure
+	 */
 	public Procedure getProcedure(String procedureName){
 
         for(Procedure proc : this.procedures){
@@ -69,6 +74,91 @@ public class Service implements IstSOSObject<Service>{
         return null;
 
 	}
+	
+	/**
+	 * 
+	 * @param offeringName
+	 * @return Offering
+	 */
+	public Offering getOffering(String offeringName){
+		
+		for(Offering offer : this.offerings){
+			
+			if(offer.getName().equals(offeringName))
+				return offer;
+		}
+		
+		return null;
+		
+	}
+	
+	/**
+	 * 
+	 * @param defUrn
+	 * @return ObservedProperty
+	 */
+	public ObservedProperty getObservedProperty(String defUrn){
+		
+		for(ObservedProperty obsProp : this.observedProperties){
+			
+			if(obsProp.getDefinition().equals(defUrn))
+				return obsProp;
+			
+		}
+		
+		return null;
+		
+	}
+	
+	/**
+	 * 
+	 * @param code
+	 * @return DataQuality
+	 */
+	public DataQuality getDataQuality(int code){
+		
+		for(DataQuality dataQuality : this.dataQualities){
+			
+			if(dataQuality.getDataQualityCode() == code)
+				return dataQuality;
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * 
+	 * @param procedureName
+	 * @return VirtualProcedure
+	 */
+	public VirtualProcedure getVirtualProcedure(String procedureName){
+		
+		for(VirtualProcedure proc : this.virtualProcedures){
+			
+			if(proc.getSystem().equals(procedureName))
+				return proc;
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * 
+	 * @param uomName
+	 * @return UnitOfMeasure
+	 */
+	public UnitOfMeasure getUom(String uomName){
+		
+		for(UnitOfMeasure uom : this.getUnitsOfMeasure()){
+			
+			if(uom.getUnitName().equals(uomName))
+				return uom;
+		}
+		
+		return null;
+	}
+	
+	
 	/**
 	 * Default method for loading connection to Database
 	 */
@@ -588,7 +678,7 @@ public class Service implements IstSOSObject<Service>{
 		urlKeyMap.put("name", this.getName());
 		
 		Gson gson = new GsonBuilder().create();
-		String data = gson.toJson(procedure, Procedure.class);
+		String data = gson.toJson(observation, Observation.class);
 
 		IstSOS.executePost(Requests.getUrl(Request.INSERT_OBSERVATION, urlKeyMap), data, new IstSOSListener() {
 
@@ -2060,8 +2150,8 @@ public class Service implements IstSOSObject<Service>{
 	}
 	
 	/**
-	 * Retrieve HashMap of offerings
-	 * @return a HashMap of offerings, with offering name as key and offering object as value
+	 * Retrieve a list of offerings
+	 * @return an ArrayList of offerings, with offering name as key and offering object as value
 	 */
 	public ArrayList<Offering> getOfferings() {
 		return this.offerings;
