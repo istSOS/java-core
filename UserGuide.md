@@ -4,6 +4,26 @@
 Author: Florin-Daniel Cioloboc
 Last updated: 31.07.2016
 
+
+##Table of contents
+
+ - [Overview](#overview)
+ - [Before getting started](#before-getting-started)
+ - [Importing the Java Core](#importing-the-java-core)
+ - [Create an instance of istSOS](#create-an-instance-of-istsos)
+ - [Initialize a Server](#initialize-a-server)
+ - [Using Services](#using-services)
+ - [Load and Validate a Database Connection](#load-and-validate-a-database-connection)
+ - [Describe Sensor](#describe-sensor)
+ - [Register Sensor](#register-sensor)
+ - [Get Observation](#get-observation)
+   - [Offering](#offering)
+   - [Procedure](#procedure)
+   - [ObservedProperty](#observedproperty)
+   - [More on Get Observation](#more-on-get-observation)
+ - [Insert Observation](#insert-observation)
+
+
 ## Overview
 
 Consider this user guide as a tutorial to get you started on how to develop
@@ -11,24 +31,6 @@ with istSOS Java Core. This will walk you through how to use all the features
 currently available in the library.
 
 More details about istSOS itself check -> [documentation](http://istsos.org/en/latest/doc/)
-
-## Table of contents
-
-*[Before getting started](#before-getting-started)
-*[Importing the Java Core](#importing-the-java-core)
-*[Create an instance of istSOS](#create-an-instance-of-istsos)
-*[Initialize a Server](#initialize-a-server)
-*[Using Services](#using-services)
-*[Load and Validate a Database Connection](#load-and-validate-a-database-connection)
-*[Describe Sensor](#describe-sensor)
-*[Register Sensor](#register-sensor)
-*[Get Observation](#get-observation)
-	*[Offering](#offering)
-	*[Procedure](#procedure)
-	*[ObservedProperty](#observedproperty)
-	*[More on Get Observation](#more-on-get-observation)
-*[Insert Observation](#insert-observation)
-
 
 ## Before getting started
 
