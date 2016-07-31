@@ -13,7 +13,9 @@ Last updated: 31.07.2016
  - [Importing the Java Core](#importing-the-java-core)
  - [Create an instance of istSOS](#create-an-instance-of-istsos)
  - [Initialize a Server](#initialize-a-server)
- - [Using Services](#using-services)
+   - [Server authentication](#server-authentication]
+ - [Using Service](#using-service)
+   - [Multiple services on a server](#multiple-services-on-a-server)
  - [Load and Validate a Database Connection](#load-and-validate-a-database-connection)
  - [Describe Sensor](#describe-sensor)
  - [Register Sensor](#register-sensor)
@@ -27,7 +29,7 @@ Last updated: 31.07.2016
 
 ## Overview
 
-Consider this user guide as a tutorial to get you started on how to develop
+Consider this user guide as a sort of documentation to get you started on how to develop
 with istSOS Java Core. This will walk you through how to use all the features
 currently available in the library.
 
@@ -79,7 +81,6 @@ This is probably the most straightforward way you could think of when first tryi
 
 ```java
 		
-		//create a serverName
 		String serverName = "localhost";
 
 ```
@@ -103,8 +104,31 @@ a `Server` instance.
 
 Notice that you could have hard-coded the serverName into the initServer since it takes two strings as parameter if you really wanted.
 
+### Server authentication
 
-## Using Services
+If you have ever read the istSOS documentation then you know that it is possible to 
+implement a login system. The Java Core also supports this in two ways.
+
+Either when you initialize a server.
+
+```java
+
+	Server server = initServer(String name, String url, String user, String password);
+	
+```
+
+Or the option of setting it later using setters after it was initialized.
+
+```java
+	
+	server.setUser(String user);
+	
+	server.setPassword(String password);
+	
+```
+
+
+## Using Service
 
 To load services as Java object you will have to use `loadServices` method on a `server` instance that was previously initialized. 
 
@@ -132,11 +156,39 @@ instance or on a `Service`, you will have to create `IstSOSListener` in order to
 specify what the response will be if the method is successful, likewise if you get an
 error. 
 
-As you might have got the hint this process makes use of Events and EventsListeners concept, know that you were right.
+As you might have got the hint this process makes use of **Events** and **EventsListeners** concept, know that you were right.
 
 One of the **key features** of the `Service` instance is that it has the property of
 storing lists of the data classes used in istSOS, whether its `Procedure`, `Offering`,
 `ObservedProperty`. You can see more about in the [Get Observation](#get-observation) section.
+
+### Multiple services on a server 
+
+In some cases you might need more services than a single one as every project has its own
+specifications. If you have read the documentation, then you know that `istSOS` is capable
+of that and so is the Java Core.
+
+To retrieve all services present on a `Server` use the following:
+
+```java
+
+	server.getServices();
+
+```
+
+If you want to access a specific one, then you can use the simple `getService`.
+
+```java
+
+	server.getService(String serviceName)
+	
+```
+
+It will return a `Service` object.
+
+
+As a last thing about `Service`, remember the order `istSOS` -> `Server` -> `Service`. From there on you can use whatever methods are available in the service.
+
 
 
 ## Load and Validate a Database Connection

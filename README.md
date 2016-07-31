@@ -51,7 +51,7 @@ There are two options for using this library:
 
 ## Support (Requests and issues)
 
-Open an issue in the [github issue tracker](https://github.com/masterflorin/java-core/issues) for **bugs** and **requesting new features**.
+Open an issue in the [GitHub issue tracker](https://github.com/masterflorin/java-core/issues) for **bugs** and **requesting new features**.
 
 ## Author
 
@@ -61,7 +61,7 @@ Mentors from istSOS: Mirko Cardoso, Milan Antonovic.
 
 ## Release history
 
-* Last updated: 30.07.2016
+* Last updated: 31.07.2016
 * Version: 0.1
 
 ## Useful links
