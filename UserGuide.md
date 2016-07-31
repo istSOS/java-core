@@ -13,7 +13,7 @@ Last updated: 31.07.2016
  - [Importing the Java Core](#importing-the-java-core)
  - [Create an instance of istSOS](#create-an-instance-of-istsos)
  - [Initialize a Server](#initialize-a-server)
-   - [Server authentication](#server-authentication]
+   - [Server authentication](#server-authentication)
  - [Using Service](#using-service)
    - [Multiple services on a server](#multiple-services-on-a-server)
  - [Load and Validate a Database Connection](#load-and-validate-a-database-connection)
