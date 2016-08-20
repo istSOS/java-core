@@ -3,18 +3,21 @@
 
 Author: Florin-Daniel Cioloboc
 
-Last updated: 31.07.2016
+Last updated: 20.08.2016
 
 
 ##Table of contents
 
  - [Overview](#overview)
  - [Before getting started](#before-getting-started)
+ - [Short note about the structure](#short-note-about-the-structure)
  - [Importing the Java Core](#importing-the-java-core)
  - [Create an instance of istSOS](#create-an-instance-of-istsos)
  - [Initialize a Server](#initialize-a-server)
+   - [Initialize once, use many times](#initialize-once-use-many-times)
    - [Server authentication](#server-authentication)
  - [Using Service](#using-service)
+   - [Working with the same service](#working-with-the-same-service)
    - [Multiple services on a server](#multiple-services-on-a-server)
  - [Load and Validate a Database Connection](#load-and-validate-a-database-connection)
  - [Describe Sensor](#describe-sensor)
@@ -38,10 +41,29 @@ More details about istSOS itself check -> [documentation](http://istsos.org/en/l
 ## Before getting started
 
 Important to keep in mind that istSOS Java Core makes use of event listeners, therefore whenever you use a method
-whether on a e.g. `service` or `server` instance you have to use a `IstSOSListener` as a parameter for all methods.
+whether on a e.g. `Service` or `Server` instance you have to use a `IstSOSListener` as a parameter for all methods.
 
 Whenever you develop keep in mind that first the object's configuration must be loaded, thus you can see the use of `IstSOSListener`, 
 in order to keep the reference of the object.
+
+## Short note about the structure
+
+Java Core is structured in 1 package
+
+```java 
+
+	org.istsos.client
+```
+
+And two subpackages, one for `Observation` and another for `Procedure`
+
+```java  
+
+	org.istsos.client.observation```
+
+```java  
+
+	org.istsos.client.procedure ```
 
 
 ## Importing the Java Core
@@ -50,7 +72,7 @@ It follows the regular Java programming style of importing a library
 
 ```java
 
-	import istsos;
+	import org.istsos.client;
 
 ```
 
@@ -58,7 +80,7 @@ Same applies if you want to use a specific class. Below see an example of import
 
 ```java
 
-	import istsos.Service;
+	import org.istsos.client.Service;
 
 ```
 
@@ -103,6 +125,22 @@ a `Server` instance.
 ```
 
 Notice that you could have hard-coded the serverName into the initServer since it takes two strings as parameter if you really wanted.
+
+### Initialize once, use many times
+
+When developing applications, a good practice is to avoid initializing the `IstSOS` and
+`Server` instances. Instead you can get the `Server` instance by using the `getInstance` method, followed by `getServer` with the name of the server.
+
+```java
+
+    final Server server = IstSOS.getInstance().getServer("localhost");
+
+
+```
+
+`IstSOS` only needs to be instantiated once, from there on you can use several methods
+to get a connection to the object.
+
 
 ### Server authentication
 
@@ -161,6 +199,20 @@ As you might have got the hint this process makes use of **Events** and **Events
 One of the **key features** of the `Service` instance is that it has the property of
 storing lists of the data classes used in istSOS, whether its `Procedure`, `Offering`,
 `ObservedProperty`. You can see more about in the [Get Observation](#get-observation) section.
+
+
+### Working with the same service
+
+When working with `Service`, you have to keep in mind that it is one of the most important things for
+handling your istSOS requests. You need to use the same service if you want to request observations.
+
+The trick is to use `getService` on the `Server` instance as a `Server` stores a list of services available.
+
+```java
+
+    Service service = server.getService("demo");
+
+```
 
 ### Multiple services on a server 
 
@@ -436,3 +488,5 @@ a specific one from the Service.
 	
 ``` 
 While a `Procedure` can be retrieved from the list of procedures.
+
+

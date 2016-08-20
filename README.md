@@ -36,6 +36,7 @@ Serves a starting point for developing Android apps for istSOS platform.
 * Developed to handle HTTP requests asynchronously using [AsyncHTTPClient] (https://github.com/AsyncHttpClient/async-http-client)
 * Handles JSON (de)serialization using [Gson] (https://github.com/google/gson)
 * Built for Java 8 and above
+* Backwards compatibility to Java 7
 * Usable as a library in Android development
 
 ## Installation
@@ -61,7 +62,7 @@ Mentors from istSOS: Mirko Cardoso, Milan Antonovic.
 
 ## Release history
 
-* Last updated: 31.07.2016
+* Last updated: 20.08.2016
 * Version: 0.1
 
 ## Useful links
