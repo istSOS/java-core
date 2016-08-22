@@ -21,7 +21,7 @@ public class Test {
                 Service service = server.getService("demo");
 
                 System.out.println(service.getName());
-                
+                                
                 service.describeSensor("BELLINZONA", new IstSOSListener() {
                     @Override
                     public void onSuccess(EventObject event) {
@@ -39,6 +39,7 @@ public class Test {
 
                     }
                 });
+                
             }
             	
 

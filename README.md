@@ -47,8 +47,8 @@ There are two options for using this library:
 
 ## Documentation
 
-* JavaCore [UserGuide](https://github.com/masterflorin/java-core/blob/master/UserGuide.md): Tutorial on how to get started.
-* JavaCore [Version History](https://github.com/masterflorin/java-core/blob/master/VERSION.md): see release history of library.
+* JavaCore [UserGuide](UserGuide.md): Tutorial on how to get started.
+* JavaCore [Version History](VERSION.md): see release history of library.
 
 ## Support (Requests and issues)
 
