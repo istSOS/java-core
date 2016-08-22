@@ -25,6 +25,7 @@ Last updated: 22.08.2016
  - [Get Observation](#get-observation)
    - [Offering](#offering)
    - [Procedure](#procedure)
+   - [More about Procedure class](#more-about-procedure-class)
    - [ObservedProperty](#observedproperty)
    - [More on Get Observation](#more-on-get-observation)
  - [Insert Observation](#insert-observation)
@@ -357,7 +358,7 @@ To better understand, let's have a look at the header for the method `getObserva
 
 ```java
 
-		getObervation(Offering offering, Procedure procedure, 
+		service.getObervation(Offering offering, Procedure procedure, 
 						ObservedProperty defUrn, Date beginPosition, 
 						Date endPosition, IstSOSListener callback)
 
@@ -432,6 +433,38 @@ you can use the predefined `getProcedure` method for that by specifying its name
 	service.getProcedure(procedureName);
 	
 ```
+
+However, if you already know in advance which `Procedure` you require and would prefer not to go through the whole process of loading and getting all procedures, you can use the following method to request a specific `Procedure`.
+
+```java
+
+	service.getProcedure(String procedureName, final IstSOSListener callback){...};
+
+```
+
+A `Procedure` can be registered:
+
+```java
+
+	service.registerProcedure(Procedure procedure, final IstSOSListener callback){...});
+
+```
+
+or updated:
+
+```java
+
+	service.updateProcedure(Procedure procedure, final IstSOSListener callback){...});
+
+```
+
+These are implemented methods currently.
+
+### More about Procedure class
+
+Beyond the requests, `Procedure` is a class that is used in the context of an `Observation` or when describing or registering a sensor. In order to satisfy the requirements, a sub-package for `Procedure` was created.
+
+This means that a `Procedure` properties will be serialized depending on the request.
 
 ### ObservedProperty
 
