@@ -25,9 +25,17 @@ Last updated: 22.08.2016
  - [Get Observation](#get-observation)
    - [Offering](#offering)
    - [Procedure](#procedure)
+   - [More about Procedure class](#more-about-procedure-class)
    - [ObservedProperty](#observedproperty)
    - [More on Get Observation](#more-on-get-observation)
  - [Insert Observation](#insert-observation)
+ - [Other data classes](#other-data-classes)
+   - [DataQuality](#data-quality)
+   - [VirtualProcedure](#virtualprocedure)
+   - [UnitOfMeasure](#unitofmeasure)
+   - [Provider](#provider)
+     
+   
 
 
 ## Overview
@@ -55,7 +63,7 @@ Java Core is structured in 1 package
 	org.istsos.client
 ```
 
-And two subpackages, one for `Observation` and another for `Procedure`
+And two sub-packages, one for `Observation` and another for `Procedure`
 
 ```java  
 
@@ -350,7 +358,7 @@ To better understand, let's have a look at the header for the method `getObserva
 
 ```java
 
-		getObervation(Offering offering, Procedure procedure, 
+		service.getObervation(Offering offering, Procedure procedure, 
 						ObservedProperty defUrn, Date beginPosition, 
 						Date endPosition, IstSOSListener callback)
 
@@ -425,6 +433,38 @@ you can use the predefined `getProcedure` method for that by specifying its name
 	service.getProcedure(procedureName);
 	
 ```
+
+However, if you already know in advance which `Procedure` you require and would prefer not to go through the whole process of loading and getting all procedures, you can use the following method to request a specific `Procedure`.
+
+```java
+
+	service.getProcedure(String procedureName, final IstSOSListener callback){...};
+
+```
+
+A `Procedure` can be registered:
+
+```java
+
+	service.registerProcedure(Procedure procedure, final IstSOSListener callback){...});
+
+```
+
+or updated:
+
+```java
+
+	service.updateProcedure(Procedure procedure, final IstSOSListener callback){...});
+
+```
+
+These are implemented methods currently.
+
+### More about Procedure class
+
+Beyond the requests, `Procedure` is a class that is used in the context of an `Observation` or when describing or registering a sensor. In order to satisfy the requirements, a sub-package for `Procedure` was created.
+
+This means that a `Procedure` properties will be serialized depending on the request.
 
 ### ObservedProperty
 
@@ -586,7 +626,7 @@ In comparison to other classes, a `VirtualProcedure` has two special objects tha
 add `Python` code to the istSOS VirtualProcedure.
 
 
-#### <b>Code</b>
+**Code**
 
 The following code below  is to give you a glimpse of what can be done:
 
@@ -604,7 +644,7 @@ The following code below  is to give you a glimpse of what can be done:
 
 Additional methods for updating and removing `Code` are available in the same format.
 
-#### <b>Rating Curve</b>
+**Rating Curve**
 
 In comparison to `Code`, update method is not available for RatingCurve.
 
@@ -626,3 +666,87 @@ In comparison to `Code`, update method is not available for RatingCurve.
 	service.removeVirtualProcedureRatingCurve(VirtualProcedure virtualProcedure, final IstSOSListener callback){...});
 
 ```
+
+### UnitOfMeasure
+
+Working with `UnitOfMeasure` can be done in a similar fashion as it was done with the other classes.
+
+Requesting units of measure to be loaded into the `Service` object:
+
+```java
+
+	service.loadUnitsOfMeasure(new IstSOSListener() {...});
+
+```
+
+Retrieving the list of `UnitOfMeasure` from `Service`:
+
+```java
+
+	service.getUnitsOfMeasure();
+	
+```
+
+Getting a specific `UnitOfMeasure` can be done using `getUom` which returns a
+`UnitOfMeasure` object.
+ 
+
+```java
+
+	service.getUom(String uomName);
+	
+```
+
+To register a `UnitOfMeasure`:
+
+```java
+
+	service.registerUnitOfMeasure(UnitOfMeasure uom, final IstSOSListener callback){...});
+
+```
+
+update:
+
+```java
+
+	service.updateUnitOfMeasure(UnitOfMeasure uom, final IstSOSListener callback){...});
+
+```
+
+remove:
+
+```java
+
+	service.removeUnitOfMeasure(UnitOfMeasure uom, final IstSOSListener callback){...});
+	
+```
+
+`UnitOfMeasure` has the following properties:
+
+* Name
+* Description
+* List of Procedures
+
+### Provider
+
+This perhaps has less influence than the others as it will affect the information about the Service Provider. 
+
+Nonetheless, should you need to make modifications to it, feel free to use it.
+
+Currently, two methods are offered in the `Service` class to handle this aspect.
+
+```java
+
+	loadProvider(final IstSOSListener callback){...});
+
+```
+
+and an update method:
+
+```java
+
+	updateProvider(Provider provider, final IstSOSListener callback){...});
+	
+```
+
+As for properties, `Provider` class has the properties implemented that are used by istSOS.
