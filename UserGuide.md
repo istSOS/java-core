@@ -3,7 +3,7 @@
 
 Author: Florin-Daniel Cioloboc
 
-Last updated: 20.08.2016
+Last updated: 22.08.2016
 
 
 ##Table of contents
@@ -489,4 +489,140 @@ a specific one from the Service.
 ``` 
 While a `Procedure` can be retrieved from the list of procedures.
 
+## Other data classes
 
+Besides the classes presented previously as part of the Observation related requests, the Java Core supports the rest of the objects as well.
+
+* DataQuality
+* VirtualProcedure
+* UnitOfMeasure
+* Provider
+
+### Data Quality
+
+In order to retrieve `DataQuality` instances from the `Service` you can use the following request:
+
+```java
+
+	service.loadDataQualities(new IstSOSListener(){...});
+
+
+```
+
+Accessing the list of data qualities you can use a implemented method for that:
+
+```java
+
+	service.getDataQualities();
+
+
+```
+
+To get a specific object from the list of data qualities, you can follow the
+same pattern as the one used for `Procedure`, `Offering` class examples in the previous section. 
+
+```java
+
+	service.getDataQuality(int code);
+	
+```
+
+Apart from loading there are requests which are available for registering, updating, and deleting data qualities from the service.
+
+```java
+
+	service.registerDataQuality(DataQuality dataQuality, final IstSOSListener callback){...});
+
+```
+
+```java
+
+	service.updateDataQuality(DataQuality dataQuality, final IstSOSListener callback){...});
+
+```
+
+```java
+
+	service.removeDataQuality(DataQuality dataQuality, final IstSOSListener callback){...});
+
+```
+
+
+The `int` code parameter stands for the code of the `DataQuality`.
+
+All istSOS properties for this class were implemented.
+
+* code (``   getDataQualityCode()  ``)
+* name (`` getDataQualityName() ``)
+* description (``   getDataQualityDescription() ``)
+
+
+### VirtualProcedure
+
+Obtaining the list of `VirtualProcedure` you can perform the following request:
+
+```java
+
+	service.loadVirtualProcedures(new IstSOSListener() {...});
+
+```
+
+From there you can retrieve the available virtual procedures from the service instance using the following method:
+
+```
+
+	service.getVirtualProcedures();
+
+```
+
+At the moment, load and get are the only methods available.
+
+
+From a `VirtualProcedure` you can obtain the code and the `RatingCurveParameters` as those two are the available properties.
+
+Keep in mind that RatingCurve is a class of its own, which means that you can get every property it has available by using one of the implemented methods for it.
+
+In comparison to other classes, a `VirtualProcedure` has two special objects that it works with, namely `Code`, and `RatingCurve`. The former is the one that allows you to
+add `Python` code to the istSOS VirtualProcedure.
+
+
+#### <b>Code</b>
+
+The following code below  is to give you a glimpse of what can be done:
+
+```java
+
+	service.registerVirtualProcedureCode(VirtualProcedure virtualProcedure, final IstSOSListener callback){...});
+	
+```
+
+```java
+
+	service.loadVirtualProcedureCode(VirtualProcedure virtualProcedure, final IstSOSListener callback){...});
+
+```
+
+Additional methods for updating and removing `Code` are available in the same format.
+
+#### <b>Rating Curve</b>
+
+In comparison to `Code`, update method is not available for RatingCurve.
+
+
+```java
+
+	service.loadVirtualProcedureRatingCurve(VirtualProcedure virtualProcedure, final IstSOSListener callback){...});
+
+```
+
+```java
+
+	service.registerVirtualProcedureRatingCurve(VirtualProcedure virtualProcedure, final IstSOSListener callback){...});
+
+```
+
+```java
+
+	service.removeVirtualProcedureRatingCurve(VirtualProcedure virtualProcedure, final IstSOSListener callback){...});
+
+```
