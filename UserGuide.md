@@ -119,7 +119,7 @@ This is probably the most straightforward way you could think of when first tryi
 ```java
 
 		istsos.initServer(serverName, "http://istsos.org/istsos/");
-		Server server = sos.getServer(serverName);
+		Server server = istsos.getServer(serverName);
         
 ```
 
@@ -186,7 +186,7 @@ To load services as Java object you will have to use `loadServices` method on a 
         public void onSuccess(EventObject event) {
             
         //apply other methods here
-            
+        }    
         @Override
         public void onError(EventObject event) {
 
